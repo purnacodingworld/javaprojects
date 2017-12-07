@@ -1,0 +1,59 @@
+package com.banking.loans.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Table(name="accounts", schema="banking")
+@Entity
+public class Account {
+	
+	@Id
+	@Column(name="acc_no", nullable=false, length=20)
+	private String accNo;
+		
+	@ManyToOne(optional=false)
+	@JoinColumn(name="acc_type_id")
+	private AccountType accountType;	
+	
+	@Column(name="cin", nullable=false,length=9)
+	private String cin;
+		
+	@Column(name="balance", nullable=true)
+	private Double balance;
+
+	public String getAccNo() {
+		return accNo;
+	}
+
+	public void setAccNo(String accNo) {
+		this.accNo = accNo;
+	}
+
+	public AccountType getAccountType() {
+		return accountType;
+	}
+
+	public void setAccountType(AccountType accountType) {
+		this.accountType = accountType;
+	}
+
+	public String getCin() {
+		return cin;
+	}
+
+	public void setCin(String cin) {
+		this.cin = cin;
+	}
+
+	public Double getBalance() {
+		return balance;
+	}
+
+	public void setBalance(Double balance) {
+		this.balance = balance;
+	}	
+}

@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: banking-loans
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: Purna
+Implementation-Vendor-Id: com.banking
+Build-Jdk: 1.8.0_151
+Implementation-URL: http://projects.spring.io/spring-boot/banking-loan
+ s/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+
