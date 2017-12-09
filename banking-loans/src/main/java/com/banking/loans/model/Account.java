@@ -19,8 +19,9 @@ public class Account {
 	@JoinColumn(name="acc_type_id")
 	private AccountType accountType;	
 	
-	@Column(name="cin", nullable=false,length=9)
-	private String cin;
+	@ManyToOne(optional=false)
+	@JoinColumn(name="cin")
+	private User user;	
 		
 	@Column(name="balance", nullable=true)
 	private Double balance;
@@ -41,12 +42,12 @@ public class Account {
 		this.accountType = accountType;
 	}
 
-	public String getCin() {
-		return cin;
+	public User getUser() {
+		return user;
 	}
 
-	public void setCin(String cin) {
-		this.cin = cin;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public Double getBalance() {

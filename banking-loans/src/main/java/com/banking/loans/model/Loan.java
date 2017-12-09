@@ -27,11 +27,7 @@ public class Loan {
 	private BigDecimal dueAmount;	
 
 	@Column(name="is_closed", nullable=false,length=1)
-	private String isClosed;
-		
-	@ManyToOne(optional=false)
-	@JoinColumn(name="cin")
-	private User user;
+	private String isClosed;		
 		
 	@ManyToOne(optional=false)
 	@JoinColumn(name="acc_no")
@@ -45,13 +41,6 @@ public class Loan {
 		return account;
 	}
 	
-	public void setUser(User user){
-		this.user = user;
-	}
-	
-	public User getUser(){
-		return user;
-	}
 	public String isClosed() {
 		return isClosed;
 	}
