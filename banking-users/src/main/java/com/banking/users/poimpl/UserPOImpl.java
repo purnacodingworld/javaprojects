@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class UserPOImpl {
 
 	@JsonProperty(value="customer cin",required=true)
-	private String cin;
+	private Long cin;
 	
 	@JsonProperty(value="user name",required=true)
 	private String userName;
@@ -64,11 +64,11 @@ public class UserPOImpl {
 		this.isActive = isActive;
 	}
 
-	public String getCin() {
+	public Long getCin() {
 		return cin;
 	}
 
-	public void setCin(String cin) {
+	public void setCin(Long cin) {
 		this.cin = cin;
 	}
 	

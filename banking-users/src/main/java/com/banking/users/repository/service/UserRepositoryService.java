@@ -27,7 +27,7 @@ public class UserRepositoryService {
 		if(loginDetails==null || loginDetails.getUserName()==null || "".equalsIgnoreCase(loginDetails.getUserName()) 
 				|| "".equalsIgnoreCase(loginDetails.getPassword()) || loginDetails.getPassword()==null)
 			throw new UsersValidationException("User details are null or empty.");
-		User user  = userRepository.findOne(loginDetails.getUserName());	
+		User user  = userRepository.findOneByUserName(loginDetails.getUserName());	
 		if(user==null)
 			throw new UsersValidationException("User is not existed in our records.");		
 		
@@ -50,7 +50,7 @@ public class UserRepositoryService {
 		if(userPOImpl==null || newUserName==null || "".equalsIgnoreCase(newUserName) || newPassword==null 
 				            || "".equalsIgnoreCase(newPassword) || newFullName==null || "".equalsIgnoreCase(newFullName))
 			throw new UsersValidationException("User details are null or empty.");
-		User user  = userRepository.findOne(newUserName);	
+		User user  = userRepository.findOneByUserName(newUserName);	
 		if(user!=null)
 			throw new UsersValidationException("User is already extisted.");		
 		
@@ -71,7 +71,7 @@ public class UserRepositoryService {
 	}
 	
 	public ResponseContent updateUser(UserPOImpl userPOImpl)throws UsersValidationException{
-		if(userPOImpl==null || "".equalsIgnoreCase(userPOImpl.getCin()) || "".equalsIgnoreCase(userPOImpl.getUserName()))
+		if(userPOImpl==null || userPOImpl.getCin()==null || "".equalsIgnoreCase(userPOImpl.getUserName()))
 			throw new UsersValidationException("User details are null or empty.");
 		User user  = userRepository.findOne(userPOImpl.getCin());	
 		if(user==null)
@@ -94,7 +94,7 @@ public class UserRepositoryService {
 	}
 	
 	public ResponseContent deleteUser(UserPOImpl userPOImpl)throws UsersValidationException{
-		if(userPOImpl==null || "".equalsIgnoreCase(userPOImpl.getCin()) || "".equalsIgnoreCase(userPOImpl.getUserName()))
+		if(userPOImpl==null || userPOImpl.getCin()==null || "".equalsIgnoreCase(userPOImpl.getUserName()))
 			throw new UsersValidationException("User details are null or empty.");
 		User user  = userRepository.findOne(userPOImpl.getCin());	
 		if(user==null)
@@ -105,7 +105,7 @@ public class UserRepositoryService {
 		return responseContent;
 	}
 	public ResponseContent deactivateUser(UserPOImpl userPOImpl)throws UsersValidationException{
-		if(userPOImpl==null || "".equalsIgnoreCase(userPOImpl.getCin()) || "".equalsIgnoreCase(userPOImpl.getUserName()))
+		if(userPOImpl==null || userPOImpl.getCin()==null || "".equalsIgnoreCase(userPOImpl.getUserName()))
 			throw new UsersValidationException("User details are null or empty.");
 		User user  = userRepository.findOne(userPOImpl.getCin());	
 		if(user==null)
@@ -121,7 +121,7 @@ public class UserRepositoryService {
 	}
 	
 	public ResponseContent activateUser(UserPOImpl userPOImpl)throws UsersValidationException{
-		if(userPOImpl==null || "".equalsIgnoreCase(userPOImpl.getCin()) || "".equalsIgnoreCase(userPOImpl.getUserName()))
+		if(userPOImpl==null || userPOImpl.getCin()==null || "".equalsIgnoreCase(userPOImpl.getUserName()))
 			throw new UsersValidationException("User details are null or empty.");
 		User user  = userRepository.findOne(userPOImpl.getCin());	
 		if(user==null)

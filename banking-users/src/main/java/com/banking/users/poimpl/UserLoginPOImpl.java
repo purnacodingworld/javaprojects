@@ -4,10 +4,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class UserLoginPOImpl {
 
-	@JsonProperty(required=true)
+	@JsonProperty(value="username", required=true)
 	private String userName;
 	
-	@JsonProperty(required=true)
+	@JsonProperty(value="password", required=true)
 	private String password;
 	
 	public String getUserName() {

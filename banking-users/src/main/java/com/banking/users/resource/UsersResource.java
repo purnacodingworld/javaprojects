@@ -21,12 +21,14 @@ public class UsersResource {
 	@Autowired
 	private UserRepositoryService userRepoService;
 	
+	TxnRefGenerator txnRefGenerator = TxnRefGenerator.getInstance();
+	
 	@PostMapping(path="/auth",produces=MediaType.APPLICATION_JSON_VALUE)
 	public Object authUser(@RequestBody UserLoginPOImpl loginDetails){
 		try{
 			return userRepoService.authUser(loginDetails);
-		}catch(Exception ex){
-			TxnRefGenerator txnRefGenerator = TxnRefGenerator.getInstance();
+		}catch(Exception ex){		
+			System.err.println("Exception:"+ ex);
 			return new ResponseContent(txnRefGenerator.generateTxnRef(),ex);						
 		}		
 	}
@@ -35,8 +37,8 @@ public class UsersResource {
 	public ResponseContent createUser(@RequestBody UserPOImpl userPOImpl){
 		try{
 			return userRepoService.createUser(userPOImpl);
-		}catch(Exception ex){
-			TxnRefGenerator txnRefGenerator = TxnRefGenerator.getInstance();
+		}catch(Exception ex){			
+			System.err.println("Exception:"+ ex);
 			return new ResponseContent(txnRefGenerator.generateTxnRef(),ex);
 		}		
 	}
@@ -45,8 +47,8 @@ public class UsersResource {
 	public ResponseContent updateUser(@RequestBody UserPOImpl userPOImpl){
 		try{
 			return userRepoService.updateUser(userPOImpl);
-		}catch(Exception ex){
-			TxnRefGenerator txnRefGenerator = TxnRefGenerator.getInstance();
+		}catch(Exception ex){			
+			System.err.println("Exception:"+ ex);
 			return new ResponseContent(txnRefGenerator.generateTxnRef(),ex);
 		}		
 	}
@@ -55,8 +57,8 @@ public class UsersResource {
 	public ResponseContent deleteUser(@RequestBody UserPOImpl userPOImpl){
 		try{
 			return userRepoService.deleteUser(userPOImpl);
-		}catch(Exception ex){
-			TxnRefGenerator txnRefGenerator = TxnRefGenerator.getInstance();
+		}catch(Exception ex){			
+			System.err.println("Exception:"+ ex);
 			return new ResponseContent(txnRefGenerator.generateTxnRef(),ex);						
 		}			
 	}
@@ -65,8 +67,8 @@ public class UsersResource {
 	public ResponseContent deactivateUser(@RequestBody UserPOImpl userPOImpl) {
 		try{
 			return userRepoService.deactivateUser(userPOImpl);
-		}catch(Exception ex){
-			TxnRefGenerator txnRefGenerator = TxnRefGenerator.getInstance();
+		}catch(Exception ex){			
+			System.err.println("Exception:"+ ex);
 			return new ResponseContent(txnRefGenerator.generateTxnRef(),ex);						
 		}		
 	}
@@ -75,8 +77,8 @@ public class UsersResource {
 	public ResponseContent activateUser(@RequestBody UserPOImpl userPOImpl) {
 		try{
 			return userRepoService.activateUser(userPOImpl);
-		}catch(Exception ex){
-			TxnRefGenerator txnRefGenerator = TxnRefGenerator.getInstance();
+		}catch(Exception ex){			
+			System.err.println("Exception:"+ ex);
 			return new ResponseContent(txnRefGenerator.generateTxnRef(),ex);						
 		}		
 	}

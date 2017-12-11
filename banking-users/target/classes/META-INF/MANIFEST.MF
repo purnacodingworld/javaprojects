@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Implementation-Title: banking-users
 Implementation-Version: 0.0.1-SNAPSHOT
-Built-By: purnachander
+Built-By: Purna
 Implementation-Vendor-Id: com.banking.users
 Build-Jdk: 1.8.0_151
 Implementation-URL: http://projects.spring.io/spring-boot/banking-user
